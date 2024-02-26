@@ -17,7 +17,7 @@ namespace FileApiLesson.API.Controllers
         {
             return View();
         }
-
+        
         // GET: UserController/Details/5
         public ActionResult Details(int id)
         {

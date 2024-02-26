@@ -8,6 +8,10 @@
         {
             _env = env;
         }
+        public UserProfileExternalService()
+        {
+
+        }
 
         public async Task<string> AddPictureAndGetPath(IFormFile formFile)
         {
@@ -17,6 +21,6 @@
                 await formFile.CopyToAsync(stream);
             }
             return path;
-        }
+        } 
     }
 }

@@ -10,6 +10,6 @@ namespace FileApiLesson.Infrastructure.Persistance
 
         }
 
-        DbSet<UserProfile> Users { get; set; }
+        public DbSet<UserProfile> Users { get; set; }
     }
 }

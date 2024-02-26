@@ -21,7 +21,7 @@ namespace FileApiLesson.Domain.Entities.DTOs
         [MinLength(6)]
         public required string Password { get; set; }
 
-        [JsonIgnore]
-        public string PicturePath { get; set; }
+        /*[JsonIgnore]
+        public string PicturePath { get; set; }*/
     }
 }
