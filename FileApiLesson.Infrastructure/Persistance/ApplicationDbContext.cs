@@ -7,9 +7,9 @@ namespace FileApiLesson.Infrastructure.Persistance
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-
+            Database.Migrate();
         }
 
-        public DbSet<UserProfile> Users { get; set; }
+        public virtual DbSet<UserProfile> Users { get; set; }
     }
 }

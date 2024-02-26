@@ -14,7 +14,7 @@ namespace FileApiLesson.Application.Services.UserProfileServices
         }
 
 
-        public async Task<UserProfileDTO> CreateUserProfileAsync(UserProfileDTO userDTO)
+        public async Task<string> CreateUserProfileAsync(UserProfileDTO userDTO, string picturePath)
         {
             //UserProfileExternalService obj = new UserProfileExternalService(); 
 
@@ -26,13 +26,13 @@ namespace FileApiLesson.Application.Services.UserProfileServices
                 Login = userDTO.Login,
                 Password = userDTO.Password,
                 //PicturePath = await obj.AddPictureAndGetPath(userDTO.Picture),
-                PicturePath = userDTO.Path
+                PicturePath = picturePath,
             };
 
-            _context.Users.Add(model);
+            await _context.Users.AddAsync(model);
             await _context.SaveChangesAsync();
 
-            return userDTO;
+            return "Successful was created ✅";
         }
 
         public Task<bool> DeleteUserProfileAsync(int id)
