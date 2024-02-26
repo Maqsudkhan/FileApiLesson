@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FileApiLesson.Domain\FileApiLesson.Domain.csproj" />
+    <ProjectReference Include="..\FileApiLesson.Application\FileApiLesson.Application.csproj" />
     <ProjectReference Include="..\FileApiLesson.Infrastructure\FileApiLesson.Infrastructure.csproj" />
   </ItemGroup>
 

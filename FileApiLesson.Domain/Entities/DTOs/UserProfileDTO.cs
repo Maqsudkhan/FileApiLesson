@@ -23,5 +23,7 @@ namespace FileApiLesson.Domain.Entities.DTOs
 
         /*[JsonIgnore]
         public string PicturePath { get; set; }*/
+        [JsonIgnore]
+        public string Path { get; set; }
     }
 }
