@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FileApiLesson.Domain\FileApiLesson.Domain.csproj" />
+    <ProjectReference Include="..\FileApiLesson.Infrastructure\FileApiLesson.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\ImageServices\" />
+  </ItemGroup>
+
+</Project>
