@@ -1,4 +1,5 @@
-﻿using FileApiLesson.Domain.Entities.DTOs;
+﻿using FileApiLesson.API.ExternalServices;
+using FileApiLesson.Domain.Entities.DTOs;
 using FileApiLesson.Domain.Entities.Models;
 using FileApiLesson.Infrastructure.Persistance;
 using System;
@@ -21,7 +22,17 @@ namespace FileApiLesson.Application.Services.UserProfileServices
   
         public Task<UserProfileDTO> CreateUserProfileAsync(UserProfileDTO userDTO)
         {
-            throw new NotImplementedException();
+            UserProfileExternalService obj = new UserProfileExternalService(); 
+
+            var model = new UserProfile()
+            {
+                FullName = userDTO.FullName,
+                Phone = userDTO.Phone,
+                UserRole = userDTO.UserRole,
+                Login = userDTO.Login,
+                Password = userDTO.Password,
+                PicturePath = userDTO.PicturePath,
+            };
         }
 
         public Task<bool> DeleteUserProfileAsync(int id)
