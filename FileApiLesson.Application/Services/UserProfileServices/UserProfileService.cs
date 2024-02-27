@@ -1,16 +1,17 @@
 ﻿using FileApiLesson.Domain.Entities.DTOs;
 using FileApiLesson.Domain.Entities.Models;
-using FileApiLesson.Infrastructure.Persistance;
+using FileApiLesson.Infrastructure.IRepository;
+using Microsoft.AspNetCore.Http;
 
 namespace FileApiLesson.Application.Services.UserProfileServices
 {
     public class UserProfileService : IUserProfileService
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IUserRepository _userRepository;
 
-        public UserProfileService(ApplicationDbContext context)
+        public UserProfileService(IUserRepository userRepository)
         {
-            _context = context;
+            _userRepository = userRepository;
         }
 
 
@@ -29,30 +30,39 @@ namespace FileApiLesson.Application.Services.UserProfileServices
                 PicturePath = picturePath,
             };
 
-            await _context.Users.AddAsync(model);
-            await _context.SaveChangesAsync();
-
-            return "Successful was created ✅";
+            /*await _context.Users.AddAsync(model);
+            await _context.SaveChangesAsync();*/
+            var result = _userRepository.CreateUserProfileAsync(model);
+            return result.Result;
         }
 
         public Task<bool> DeleteUserProfileAsync(int id)
         {
-            throw new NotImplementedException();
+            return _userRepository.DeleteUserProfileAsync(id);
         }
 
         public Task<List<UserProfile>> GetAllUserProfileAsync()
         {
-            throw new NotImplementedException();
+            var result = _userRepository.GetAllUserProfileAsync();
+            return result;
         }
 
         public Task<UserProfile> GetByIdUserProfileAsync(int id)
         {
-            throw new NotImplementedException();
+            var result = _userRepository.GetByIdUserProfileAsync(id);
+            return result;
+        }
+
+        public async Task<string> UpdateByPictureUserProfileAsync(int id, string picturePath)
+        {
+            var x = _userRepository.UpdateByPictureUserProfileAsync(id, picturePath).Result;
+            return x;
         }
 
         public Task<UserProfile> UpdateUserProfileAsync(int id, UserProfileDTO userDTO)
         {
-            throw new NotImplementedException();
+            var result = _userRepository.UpdateUserProfileAsync(id, userDTO);
+            return result;
         }
     }
 }

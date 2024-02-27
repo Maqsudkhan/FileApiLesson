@@ -1,5 +1,6 @@
 using FileApiLesson.Application;
 using FileApiLesson.Infrastructure;
+using FileApiLesson.Application.Services.UserProfileServices;
 
 var builder = WebApplication.CreateBuilder(args);
 

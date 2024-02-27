@@ -1,15 +1,12 @@
 ﻿using FileApiLesson.Domain.Entities.Enums;
-using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text.Json.Serialization;
 
 namespace FileApiLesson.Domain.Entities.DTOs
 {
     public class UserProfileDTO
     {
         public string FullName { get; set; }
-        public int UserRole { get; set; }
+        public Role UserRole { get; set; }
         public string Phone { get; set; }
 
         [MinLength(5), MaxLength(20)]

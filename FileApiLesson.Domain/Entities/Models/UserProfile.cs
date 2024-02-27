@@ -1,7 +1,5 @@
 ﻿using FileApiLesson.Domain.Entities.Enums;
-using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FileApiLesson.Domain.Entities.Models
 {
@@ -9,13 +7,13 @@ namespace FileApiLesson.Domain.Entities.Models
     {
         public int Id { get; set; }
         public string FullName { get; set; }
-        public int UserRole { get; set; }
+        public Role UserRole { get; set; }
         public string Phone { get; set; }
 
-        [MinLength(5), MaxLength(20)]
+        [MinLength(3), MaxLength(40)]
         public required string Login { get; set; }
 
-        [MinLength(6)]
+        [MinLength(3)]
         public required string Password { get; set; }
         public string PicturePath { get; set; }
 
